@@ -1,30 +1,21 @@
 import styled from "styled-components";
-import {MyAnimation} from "../styles/animations/Animations";
 
-export const StyledBtn = styled.button`
+type StyledButtonPropsType = {
+    color?: string
+    fontSize?: string
+}
+
+export const StyledBtn = styled.button<StyledButtonPropsType>`
     border: none;
-    background-color: aqua;
+    background-color: ${props => props.color || '#10CD5AFF'};
     padding: 10px 20px;
-    color: blue;
-    font-size: 2rem;
+    color: #193505;
+    font-size: ${props => props.fontSize || '2rem' };
     font-weight: bold;
+    border-radius: 5px;
 
     &:hover {
         background-color: #0077ff;
         color: white;
-    }
-
-    &:last-child {
-        background-color: chartreuse;
-    }
-`
-
-// Наследуемся от StyledBtn
-export const SuperButton = styled(StyledBtn)`
-    border-radius: 5px;
-    background-color: #bf9541;
-    color: #05352c;
-    &:hover {
-        animation: ${MyAnimation} 2s ease-in-out infinite;
     }
 `
